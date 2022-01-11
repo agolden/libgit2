@@ -22,6 +22,13 @@ $ cd build
 $ cmake ..
 $ cmake --build .
 ```
+or if you're on Apple silicon:
+```console
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_APPLE_SILICON_PROCESSOR=arm64 ..
+$ cmake --build .
+```
 
 Then copy the resulting library to your Xcode application directory (backing
 up the previous version just to be safe):
