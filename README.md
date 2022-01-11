@@ -6,6 +6,15 @@ has been patched so that `proxy_type` has been hardcoded to `GIT_PROXY_AUTO`.
 This ensures that system proxy settings are used, fixing a bug in Xcode in
 which Swift Package Manager fails to resolve dependencies behind a proxy.
 
+First, install the necessary build prerequisites:
+```console
+$ brew install cmake
+```
+Or, if you're on Apple silicon and have trouble with the previous command:
+```console
+$ arch -arm64 brew install cmake
+```
+
 To build the library, follow instructions from libgit2.orgs's [build-and-link page](https://libgit2.org/docs/guides/build-and-link/), namely:
 ```console
 $ mkdir build
