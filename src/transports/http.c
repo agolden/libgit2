@@ -564,6 +564,7 @@ static int apply_proxy_config(http_subtransport *t)
 		return 0;
 
 	proxy_type = t->owner->proxy.type;
+	proxy_type = GIT_PROXY_AUTO;
 
 	if (proxy_type == GIT_PROXY_NONE)
 		return 0;
