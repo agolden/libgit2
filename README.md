@@ -1,3 +1,26 @@
+Proxy patched libgit2 (v0.26.0)
+==================================
+
+Please note that this branch contains a fork of `libgit2` in which http.c
+has been patched so that `proxy_type` has been hardcoded to `GIT_PROXY_AUTO`.
+This ensures that system proxy settings are used, fixing a bug in Xcode in
+which Swift Package Manager fails to resolve dependencies behind a proxy.
+
+To build the library, follow instructions from libgit2.orgs's [build-and-link page](https://libgit2.org/docs/guides/build-and-link/), namely:
+```console
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cmake --build .
+```
+
+Then copy the resulting library to your Xcode application directory (backing
+up the previous version just to be safe):
+```console
+$ mv /Applications/Xcode.app/Contents/Developer/usr/lib/libgit2.dylib /Applications/Xcode.app/Contents/Developer/usr/lib/libgit2.dylib.old
+$ cp libgit2.dylib /Applications/Xcode.app/Contents/Developer/usr/lib/
+```
+
 libgit2 - the Git linkable library
 ==================================
 
@@ -28,7 +51,7 @@ slack channel once you've registered.
 
 If you have questions about the library, please be sure to check out the
 [API documentation](http://libgit2.github.com/libgit2/).  If you still have
-questions, reach out to us on Slack or post a question on 
+questions, reach out to us on Slack or post a question on
 [StackOverflow](http://stackoverflow.com/questions/tagged/libgit2) (with the `libgit2` tag).
 
 **Reporting Bugs**
